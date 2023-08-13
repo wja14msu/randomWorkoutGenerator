@@ -1,0 +1,44 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#timerDisplay {
+    border: solid rebeccapurple;
+}
+
+#roundCountDisplay {
+    border: solid goldenrod;
+}
+
+.meat {
+    border: solid green;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+#body-selector-container {
+    border: solid skyblue;
+    display: flex;
+    justify-content: center;
+}
+
+#legs {
+    border: solid wheat;
+}
+
+#abs {
+    border: solid darkblue;
+}
+
+#arms {
+    border: solid peru;
+}
+
+#random {
+    border: solid sienna;
+}
