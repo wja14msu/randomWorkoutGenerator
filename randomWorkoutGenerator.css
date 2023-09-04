@@ -3,14 +3,17 @@ body {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    background-color: slategray;
 }
 
 #timerDisplay {
     border: solid rebeccapurple;
+    font-size: 100px;
 }
 
 #roundCountDisplay {
     border: solid goldenrod;
+    font-size: 100px;
 }
 
 .meat {
@@ -41,4 +44,8 @@ body {
 
 #random {
     border: solid sienna;
+}
+
+#workout-display {
+    font-size: 100px;
 }

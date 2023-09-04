@@ -3,6 +3,7 @@ const legWorkouts = ['SQUATS!', 'LUNGES!', 'CALF RAISES!', 'SIDE LUNGES!', 'HEAD
 const coreWorkouts = ['CRUNCHES', 'PLANK!', 'SIDE-CHOPPING WOOD!', 'FRONT-CHOPPING WOOD', 'FLUTTER KICKS', 'SITTING TWISTS', 'STANDING KNEE TO ELBOW!', 'PLANK CRUNCHES!', 'BICYCLE CRUNCHES', '']
 const timerDisplay = document.getElementById('timerDisplay');
 const roundCountDisplay = document.getElementById('roundCountDisplay');
+const workoutDisplay = document.getElementById('workout-display');
 
 function generateWorkout(bodySection) {
     const randomIndex = Math.floor(Math.random() * bodySection.length);
@@ -42,21 +43,6 @@ function startTimer(totalTime) {
     }, 1000);
 }
 
-function reset() {
-
-}
-
-// Start the timer when the button is clicked
-const startButton = document.getElementById('startButton');
-startButton.addEventListener('click', () => {
-    startTimer(45); // start with a 45-second timer
-});
-
-const resetButton = document.getElementById('resetButton');
-resetButton.addEventListener('click', () => {
-    roundCount = 1;
-})
-
 function armGenerator() {
     generateWorkout(armWorkouts);
     startTimer(45);
@@ -65,10 +51,11 @@ function armGenerator() {
 document.getElementById('arms').addEventListener('click', () => {
   startTimer(45);
   generateWorkout(armWorkouts);
+  
 })
 
 function abGenerator() {
-
+    generateWorkout(coreWorkouts);
 }
 
 function legGenerator() {
