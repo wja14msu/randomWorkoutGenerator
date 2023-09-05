@@ -21,8 +21,14 @@ function formatTime(seconds) {
 
 let roundCount = 1;
 
+document.getElementById('arms').addEventListener('click', () => {
+  startTimerArms(45);
+  generateWorkout(armWorkouts);
+  
+})
+
 // Function to handle the timer
-function startTimer(totalTime) {
+function startTimerArms(totalTime) {
     let remainingTime = totalTime;
 
     const interval = setInterval(() => {
@@ -34,30 +40,70 @@ function startTimer(totalTime) {
             clearInterval(interval);
 
             if (totalTime === 45) {
-                startTimer(15);
+                startTimerArms(15);
+                generateWorkout(armWorkouts);
             } else {
-                startTimer(45);
+                startTimerArms(45);
                 roundCount++;
             }
         } 
     }, 1000);
 }
 
-function armGenerator() {
-    generateWorkout(armWorkouts);
-    startTimer(45);
-}
-
-document.getElementById('arms').addEventListener('click', () => {
-  startTimer(45);
-  generateWorkout(armWorkouts);
+document.getElementById('legs').addEventListener('click', () => {
+  startTimerlegs(45);
+  generateWorkout(legWorkouts);
   
 })
 
-function abGenerator() {
-    generateWorkout(coreWorkouts);
+// Function to handle the timer
+function startTimerlegs(totalTime) {
+    let remainingTime = totalTime;
+
+    const interval = setInterval(() => {
+        timerDisplay.textContent = `Timer: ${formatTime(remainingTime)}`;
+        remainingTime--;
+        
+        roundCountDisplay.textContent = `Round Count: ${roundCount}`
+        if (remainingTime < 0) {
+            clearInterval(interval);
+
+            if (totalTime === 45) {
+                startTimerlegs(15);
+                generateWorkout(legWorkouts);
+            } else {
+                startTimerlegs(45);
+                roundCount++;
+            }
+        } 
+    }, 1000);
 }
 
-function legGenerator() {
-    
+document.getElementById('abs').addEventListener('click', () => {
+  startTimerAbs(45);
+  generateWorkout(coreWorkouts);
+  
+})
+
+// Function to handle the timer
+function startTimerAbs(totalTime) {
+    let remainingTime = totalTime;
+
+    const interval = setInterval(() => {
+        timerDisplay.textContent = `Timer: ${formatTime(remainingTime)}`;
+        remainingTime--;
+        
+        roundCountDisplay.textContent = `Round Count: ${roundCount}`
+        if (remainingTime < 0) {
+            clearInterval(interval);
+
+            if (totalTime === 45) {
+                startTimerAbs(15);
+                generateWorkout(coreWorkouts);
+            } else {
+                startTimerAbs(45);
+                roundCount++;
+            }
+        } 
+    }, 1000);
 }
