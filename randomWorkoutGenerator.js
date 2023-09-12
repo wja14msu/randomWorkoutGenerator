@@ -1,9 +1,29 @@
 const armWorkouts = ['PUSH UPS!', 'CURLS!', 'SKY PRESS!', 'OVERHEAD TRICEPS', 'SHOULDER FLY!', 'BOX!', 'BENT-OVER ROW!'];
 const legWorkouts = ['SQUATS!', 'LUNGES!', 'CALF RAISES!', 'SIDE LUNGES!', 'HEAD KICKS!', 'FRONT-CHOPPING WOOD', 'HIGH KNEES!'];
-const coreWorkouts = ['CRUNCHES', 'PLANK!', 'SIDE-CHOPPING WOOD!', 'FRONT-CHOPPING WOOD', 'FLUTTER KICKS', 'SITTING TWISTS', 'STANDING KNEE TO ELBOW!', 'PLANK CRUNCHES!', 'BICYCLE CRUNCHES', '']
+const coreWorkouts = ['CRUNCHES', 'PLANK!', 'SIDE-CHOPPING WOOD!', 'FRONT-CHOPPING WOOD', 'FLUTTER KICKS', 'SITTING TWISTS', 'STANDING KNEE TO ELBOW!', 'PLANK CRUNCHES!', 'BICYCLE CRUNCHES'];
+const allWorkouts = ['PUSH UPS!', 'CURLS!', 'SKY PRESS!', 'OVERHEAD TRICEPS', 'SHOULDER FLY!', 'BOX!', 'BENT-OVER ROW!', 'SQUATS!', 'LUNGES!', 'CALF RAISES!', 'SIDE LUNGES!', 'HEAD KICKS!', 'FRONT-CHOPPING WOOD', 'HIGH KNEES!', 'CRUNCHES', 'PLANK!', 'SIDE-CHOPPING WOOD!', 'FRONT-CHOPPING WOOD', 'FLUTTER KICKS', 'SITTING TWISTS', 'STANDING KNEE TO ELBOW!', 'PLANK CRUNCHES!', 'BICYCLE CRUNCHES'];
 const timerDisplay = document.getElementById('timerDisplay');
 const roundCountDisplay = document.getElementById('roundCountDisplay');
 const workoutDisplay = document.getElementById('workout-display');
+
+function updateTime() {
+    const timeContainer = document.getElementById("time-container");
+    const currentTime = new Date();
+    const hours = currentTime.getHours();
+    const minutes = currentTime.getMinutes();
+    const seconds = currentTime.getSeconds();
+
+    // Format the time as HH:MM:SS
+    const formattedTime = `${hours}:${minutes}:${seconds}`;
+
+    // Update the content of the div
+    timeContainer.textContent = "Current Time: " + formattedTime;
+}
+// Call updateTime function to initially display the time
+updateTime();
+
+// Update the time every second (1000 milliseconds)
+setInterval(updateTime, 1000);
 
 function generateWorkout(bodySection) {
     const randomIndex = Math.floor(Math.random() * bodySection.length);
@@ -102,6 +122,35 @@ function startTimerAbs(totalTime) {
                 generateWorkout(coreWorkouts);
             } else {
                 startTimerAbs(45);
+                roundCount++;
+            }
+        } 
+    }, 1000);
+}
+
+document.getElementById('random').addEventListener('click', () => {
+  startTimerAbs(45);
+  generateWorkout(allWorkouts);
+  
+})
+
+// Function to handle the timer
+function startTimerRandom(totalTime) {
+    let remainingTime = totalTime;
+
+    const interval = setInterval(() => {
+        timerDisplay.textContent = `Timer: ${formatTime(remainingTime)}`;
+        remainingTime--;
+        
+        roundCountDisplay.textContent = `Round Count: ${roundCount}`
+        if (remainingTime < 0) {
+            clearInterval(interval);
+
+            if (totalTime === 45) {
+                startTimerRandom(15);
+                generateWorkout(allWorkouts);
+            } else {
+                startTimerRandom(45);
                 roundCount++;
             }
         } 
