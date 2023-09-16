@@ -62,6 +62,9 @@ function generateWorkout(bodySection) {
 
     console.log("workout: ", workout);
     let workoutPictureContainer = document.getElementById('workout-picture');
+    workoutPictureContainer.src = hyphenSpace(workout);
+
+    // workoutPictureContainer.src = workoutFileName;
     //workoutPicture = hyphenSpace(workout);
     //console.log("workoutFileName: ", workoutFileName);
     //workoutPicture = workout;
