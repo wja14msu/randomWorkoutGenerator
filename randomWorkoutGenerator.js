@@ -7,7 +7,10 @@ const timerDisplay = document.getElementById('timerDisplay');
 const roundCountDisplay = document.getElementById('roundCountDisplay');
 const workoutDisplay = document.getElementById('workout-display');
 
-const modifiedArray = armWorkouts.map((item) => {
+let roundCount = 1;
+
+
+/*const modifiedArray = armWorkouts.map((item) => {
     // Replace spaces with hyphens
     const hyphenatedItem = item.replace(/ /g, '-');
 
@@ -17,12 +20,9 @@ const modifiedArray = armWorkouts.map((item) => {
 
     return newItem;
 });
+*/
 
-//console.log("modifiedArray: ", modifiedArray);
-
-
-
-function hyphenSpace(workout) {
+/*function hyphenSpace(workout) {
     // Replace spaces with hyphens
     const modifiedString = workout.replace(/ /g, '-');
 
@@ -33,6 +33,7 @@ function hyphenSpace(workout) {
 
     return workoutFileName
 }
+*/
 
 
 
@@ -55,27 +56,6 @@ updateTime();
 // Update the time every second (1000 milliseconds)
 setInterval(updateTime, 1000);
 
-function generateWorkout(bodySection) {
-    const randomIndex = Math.floor(Math.random() * bodySection.length);
-    let workout = bodySection[randomIndex];
-    workoutDisplay.textContent = workout;
-
-    console.log("workout: ", workout);
-    let workoutPictureContainer = document.getElementById('workout-picture');
-    workoutPictureContainer.src = "images/" + workout.toLowerCase() + ".png";
-    console.log("workoutPictureContainer: ", workoutPictureContainer);
-
-    // workoutPictureContainer.src = workoutFileName;
-    //workoutPicture = hyphenSpace(workout);
-    //console.log("workoutFileName: ", workoutFileName);
-    //workoutPicture = workout;
-
-    //console.log("workoutPicture", workoutPicture);
-    //let image = document.getElementById("workout-picture")
-    //workoutPictureContainer.src = hyphenSpace(workout);
-    //return workoutFileName;
-}
-
 function formatTime(seconds) {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
@@ -84,8 +64,16 @@ function formatTime(seconds) {
     return `${formattedMinutes}:${formattedSeconds}`;
 }
 
+function generateWorkout(bodySection) {
+    const randomIndex = Math.floor(Math.random() * bodySection.length);
+    let workout = bodySection[randomIndex];
+    workoutDisplay.textContent = workout;
 
-let roundCount = 1;
+    console.log("workout: ", workout);
+    let workoutPicture = document.getElementById('workout-picture');
+    workoutPicture.src = "images/" + workout.toLowerCase() + ".png";
+    console.log("workoutPicture: ", workoutPicture);
+}
 
 document.getElementById('arms').addEventListener('click', () => {
   startTimerArms(45);
@@ -93,7 +81,7 @@ document.getElementById('arms').addEventListener('click', () => {
   
 })
 
-// Function to handle the timer
+// Function to handle the arms timer
 function startTimerArms(totalTime) {
     let remainingTime = totalTime;
 
@@ -122,7 +110,7 @@ document.getElementById('legs').addEventListener('click', () => {
   
 })
 
-// Function to handle the timer
+// Function to handle the legs timer
 function startTimerlegs(totalTime) {
     let remainingTime = totalTime;
 
@@ -151,7 +139,7 @@ document.getElementById('abs').addEventListener('click', () => {
   
 })
 
-// Function to handle the timer
+// Function to handle the abs timer
 function startTimerAbs(totalTime) {
     let remainingTime = totalTime;
 
@@ -180,7 +168,7 @@ document.getElementById('random').addEventListener('click', () => {
   
 })
 
-// Function to handle the timer
+// Function to handle the random timer
 function startTimerRandom(totalTime) {
     let remainingTime = totalTime;
 
