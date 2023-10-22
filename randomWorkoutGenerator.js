@@ -1,40 +1,13 @@
 const armWorkouts = ['ARM CHOPS', 'ARM CHOPS 2', 'BACKFISTS', 'CLOSE GRIP PUSH UPS', 'HOOKS', 'OVERHEAD PUNCHES', 'PIKE PUSH UPS', 'PUNCHES', 'PUSH UPS', 'RAISED LEG PUSH UPS', 'TRICEP EXTENSIONS', 'UPPERCUTS'];
 const legWorkouts = ['BRIDGES', 'BUTT KICKS', 'CALF RAISES', 'DONKEY KICKS', 'FRONT KICKS', 'HIGH KNEES', 'HOOK KICKS', 'JUMPING LUNGES', 'JUMP KNEE TUCKS', 'JUMP SQUATS', 'KNEE STRIKES', 'LUNGES', 'LUNGE STEP UPS', 'MARCH STEPS', 'SHRIMP SQUATS', 'SIDE KICKS', 'SIDE LEG RAISES', 'SIDE TO SIDE LUNGES', 'SINGLE LEG BRIDGES', 'SQUAT HOLD PUNCHES', 'SQUATS', 'WALL SIT'];
 const coreWorkouts = ['CLIMBERS', 'CLIMBER TAPS', 'CROSS CRUNCHES', 'CRUNCHES', 'ELBOW PLANK', 'L SIT', 'FLUTTER KICKS', 'HOLLOW HOLD', 'KNEE CRUNCHES', 'KNEE TO ELBOW CRUNCHES', 'KNEE TO ELBOWS', 'LEG RAISES', 'PLANK JACKS', 'PLANK JUMP INS', 'PLANK LEG RAISES', 'PLANK ROTATIONS', 'PLANK WALK OUTS', 'RAISED LEG HOLD', 'REVERSE CRUNCHES', 'SHOULDER TAPS', 'SIDE BRIDGES', 'SIDE ELBOW PLANK', 'SITTING TWISTS', 'SIT UPS', 'SLOW CLIMBERS', 'V UPS'];
-const allWorkouts = ['ARM CHOPS', 'ARM CHOPS 2', 'BACKFISTS', 'BASIC BURPEES', 'BODY SAW', 'BRIDGES', 'BURPEES', 'BUTT KICKS', 'CALF RAISES', 'CLIMBERS', 'CLIMBER TAPS', 'CLOSE GRIP PUSH UPS', 'CROS CRUNCHES', 'CRUNCHES', 'DONKEY KICKS', 'ELBOW PLANK', 'ELL SIT', 'FLUTTER KICKS', 'FRONT KICKS', 'GET UPS', 'HIGH KNEES', 'HOLLOW HOLD', 'HOOK KICKS', 'HOOKS', 'JUMPING JACKS', 'JUMPING LUNGES', 'JUMPING TEES', 'JUMP KNEE TUCKS', 'JUMP SQUATS', 'KNEED CRUNCHES', 'KNEE STRIKES', 'KNEE TO ELBOW CRUNCHES', 'KNEE TO ELBOWS', 'LEG RAISES', 'LUNGES', 'LUNGE STEUP UPS', 'MARCH STEPS', 'OVERHEAD PUNCHES', 'PIKE PUSH UPS', 'PLANK JACKS', 'PLANK JUMP INS', 'PLANK LEG RAISES', 'PLANK ROTATIONS', 'PLANK WALK OUTS', 'PUNCHES', 'PUSH UPS', 'RAISED LEG HOLD', 'RAISED LEG PUSH UPS', 'REVERSE CRUNCHES', 'SEAL JACKS', 'SHOULDER TAPS', 'SHRIMP SQUATS', 'SIDE BRIDGES', 'SIDE ELBOW PLANK', 'SIDE KICKS', 'SIDE LEG RAISES', 'SIDE TO SIDE LUNGES', 'SINGLE LEG BRIDGES', 'SITTING TWISTS', 'SIT UPS', 'SLOW CLIMBERS', 'SPLIT JACKS', 'SQUAT HOLD PUNCHES', 'SQUATS', 'TRICEP EXTENSIONS', 'UPPERCUTS', 'V UPS', 'WALL SIT'];
+const allWorkouts = ['ARM CHOPS', 'ARM CHOPS 2', 'BACKFISTS', 'BASIC BURPEES', 'BODY SAW', 'BRIDGES', 'BURPEES', 'BUTT KICKS', 'CALF RAISES', 'CLIMBERS', 'CLIMBER TAPS', 'CLOSE GRIP PUSH UPS', 'CROSS CRUNCHES', 'CRUNCHES', 'DONKEY KICKS', 'ELBOW PLANK', 'L SIT', 'FLUTTER KICKS', 'FRONT KICKS', 'GET UPS', 'HIGH KNEES', 'HOLLOW HOLD', 'HOOK KICKS', 'HOOKS', 'JUMPING JACKS', 'JUMPING LUNGES', 'JUMPING TEES', 'JUMP KNEE TUCKS', 'JUMP SQUATS', 'KNEED CRUNCHES', 'KNEE STRIKES', 'KNEE TO ELBOW CRUNCHES', 'KNEE TO ELBOWS', 'LEG RAISES', 'LUNGES', 'LUNGE STEP UPS', 'MARCH STEPS', 'OVERHEAD PUNCHES', 'PIKE PUSH UPS', 'PLANK JACKS', 'PLANK JUMP INS', 'PLANK LEG RAISES', 'PLANK ROTATIONS', 'PLANK WALK OUTS', 'PUNCHES', 'PUSH UPS', 'RAISED LEG HOLD', 'RAISED LEG PUSH UPS', 'REVERSE CRUNCHES', 'SEAL JACKS', 'SHOULDER TAPS', 'SHRIMP SQUATS', 'SIDE BRIDGES', 'SIDE ELBOW PLANK', 'SIDE KICKS', 'SIDE LEG RAISES', 'SIDE TO SIDE LUNGES', 'SINGLE LEG BRIDGES', 'SITTING TWISTS', 'SIT UPS', 'SLOW CLIMBERS', 'SPLIT JACKS', 'SQUAT HOLD PUNCHES', 'SQUATS', 'TRICEP EXTENSIONS', 'UPPERCUTS', 'V UPS', 'WALL SIT'];
 
 const timerDisplay = document.getElementById('timerDisplay');
 const roundCountDisplay = document.getElementById('roundCountDisplay');
 const workoutDisplay = document.getElementById('workout-display');
 
 let roundCount = 1;
-
-
-/*const modifiedArray = armWorkouts.map((item) => {
-    // Replace spaces with hyphens
-    const hyphenatedItem = item.replace(/ /g, '-');
-
-    // Add file extension (e.g., ".txt" for the first item)
-    const fileExtension = item.split('.').pop(); // Extract the file extension)
-    const newItem = hyphenatedItem.replace(`.${fileExtension}`, '') + '.png';
-
-    return newItem;
-});
-*/
-
-/*function hyphenSpace(workout) {
-    // Replace spaces with hyphens
-    const modifiedString = workout.replace(/ /g, '-');
-
-    // Add the file extension
-    const workoutFileName = modifiedString.toLowerCase() + '.png';
-    console.log("workoutFileName", workoutFileName);
-    
-
-    return workoutFileName
-}
-*/
-
 
 
 function updateTime() {
@@ -64,6 +37,7 @@ function formatTime(seconds) {
     return `${formattedMinutes}:${formattedSeconds}`;
 }
 
+
 function generateWorkout(bodySection) {
     const randomIndex = Math.floor(Math.random() * bodySection.length);
     let workout = bodySection[randomIndex];
@@ -75,16 +49,38 @@ function generateWorkout(bodySection) {
     console.log("workoutPicture: ", workoutPicture);
 }
 
+/*function skipExercise(bodySection) {
+    document.getElementsByClassName('skip').addEventListener('Space', () => {
+        generateWorkout(bodySection);
+    })
+}
+*/
+
+
 document.getElementById('arms').addEventListener('click', () => {
   startTimerArms(45);
   generateWorkout(armWorkouts);
   
 })
 
+
 // Function to handle the arms timer
 function startTimerArms(totalTime) {
     let remainingTime = totalTime;
 
+    document.addEventListener('onkeydown' || 'click', () => {
+        if (key === ' ') {
+            generateWorkout(armWorkouts);
+        }
+    });
+
+    document.getElementById("skip").addEventListener('click', () => {
+        generateWorkout(armWorkouts);
+    });
+    
+
+
+    
     const interval = setInterval(() => {
         timerDisplay.textContent = `Timer: ${formatTime(remainingTime)}`;
         remainingTime--;
@@ -104,6 +100,7 @@ function startTimerArms(totalTime) {
     }, 1000);
 }
 
+
 document.getElementById('legs').addEventListener('click', () => {
   startTimerlegs(45);
   generateWorkout(legWorkouts);
@@ -113,6 +110,10 @@ document.getElementById('legs').addEventListener('click', () => {
 // Function to handle the legs timer
 function startTimerlegs(totalTime) {
     let remainingTime = totalTime;
+
+    document.getElementById("skip").addEventListener('click', () => {
+        generateWorkout(legWorkouts);
+    });
 
     const interval = setInterval(() => {
         timerDisplay.textContent = `Timer: ${formatTime(remainingTime)}`;
@@ -133,6 +134,7 @@ function startTimerlegs(totalTime) {
     }, 1000);
 }
 
+
 document.getElementById('abs').addEventListener('click', () => {
   startTimerAbs(45);
   generateWorkout(coreWorkouts);
@@ -142,6 +144,10 @@ document.getElementById('abs').addEventListener('click', () => {
 // Function to handle the abs timer
 function startTimerAbs(totalTime) {
     let remainingTime = totalTime;
+
+    document.getElementById("skip").addEventListener('click', () => {
+        generateWorkout(coreWorkouts);
+    });
 
     const interval = setInterval(() => {
         timerDisplay.textContent = `Timer: ${formatTime(remainingTime)}`;
@@ -162,8 +168,9 @@ function startTimerAbs(totalTime) {
     }, 1000);
 }
 
+
 document.getElementById('random').addEventListener('click', () => {
-  startTimerAbs(45);
+  startTimerRandom(45);
   generateWorkout(allWorkouts);
   
 })
@@ -171,6 +178,10 @@ document.getElementById('random').addEventListener('click', () => {
 // Function to handle the random timer
 function startTimerRandom(totalTime) {
     let remainingTime = totalTime;
+
+    document.getElementById("skip").addEventListener('click', () => {
+        generateWorkout(allWorkouts);
+    });
 
     const interval = setInterval(() => {
         timerDisplay.textContent = `Timer: ${formatTime(remainingTime)}`;
@@ -190,3 +201,5 @@ function startTimerRandom(totalTime) {
         } 
     }, 1000);
 }
+
+
