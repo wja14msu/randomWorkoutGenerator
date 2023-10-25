@@ -68,11 +68,7 @@ document.getElementById('arms').addEventListener('click', () => {
 function startTimerArms(totalTime) {
     let remainingTime = totalTime;
 
-    document.addEventListener('onkeydown' || 'click', () => {
-        if (key === ' ') {
-            generateWorkout(armWorkouts);
-        }
-    });
+    
 
     document.getElementById("skip").addEventListener('click', () => {
         generateWorkout(armWorkouts);
@@ -201,5 +197,4 @@ function startTimerRandom(totalTime) {
         } 
     }, 1000);
 }
-
 
